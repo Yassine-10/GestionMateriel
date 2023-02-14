@@ -1,0 +1,32 @@
+.form-style-10{
+  width:950px;
+  padding:20px;
+  margin:50px auto;
+  margin-right: 40px;
+  background: #FFF;
+  border-radius: 10px;
+  -webkit-border-radius:0px;
+  -moz-border-radius: 0px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+
+.form-style-10 .inner-wrap{
+  padding: 10px;
+  background: #F8F8F8;
+  border-radius: 6px;
+  margin-bottom: 1px;
+}
+
+.pagination {
+  list-style: none;
+
+  position: absolute;
+  padding: 0;
+  display: flex;
+}
+.form-container{
+  margin-top: 20px;
+  justify-items:center;
+}

@@ -1,0 +1,46 @@
+<div class="form-style-10">
+<h3>Update Materiel</h3>
+<div style="width: 400px;">
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="reference">Reference</label>
+      <input type="text" class="form-control" id="reference" required [(ngModel)]="materiel.reference" name="reference">
+    </div>
+    <div class="form-group">
+      <label for="etat">Etat</label>
+      <input type="text" class="form-control" id="etat" required [(ngModel)]="materiel.etat" name="etat">
+    </div>
+
+    <div class="form-group">
+      <label >Categorie</label>
+      <select class="form-select" [(ngModel)]="materiel.categorie" name="categorie" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let c of categorie" [value]="c.id" >{{c.nom}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label >Type</label>
+      <select class="form-select"   [(ngModel)]="materiel.type" nom="type" [ngModelOptions]="{standalone: true}">
+        
+        <option *ngFor="let t of type" [value]="t.id">{{t.nom}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Etablissement Donatrice</label>
+      <select class="form-select"  [(ngModel)]="materiel.etablissementDon" name="etablissement" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let e of etablissementDon" [value]="e.id">{{e.nom}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label >Etablissement Acceuillante</label>
+      <select class="form-select"  [(ngModel)]="materiel.etablissementAc" name="etablissement" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let e of etablissementAcc" [value]="e.id">{{e.nom}}</option>
+      </select>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div></div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="container form-container">
+      <label for="search" class="col-sm-2 col-form-label" style="text-align: right;">Search</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="searchValue"  class="form-control" id="search"/>
+
+      </div>
+      <td><button (click)="createEtablissement()" type="button" class="btn btn-success">Add Etablissement</button></td>
+
+    </div>
+
+    <div class="form-style-10">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>Etablissement</h3></div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Nom</th>
+              <th>Mail</th>
+              <th>Telephone</th>
+              <th>Ville</th>
+              <th>Nombre de Materiel</th>
+              <th>Donatrice</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="etablissement">
+            <tr *ngFor="let e of etablissement | searchfilter2:searchValue " >
+              <td><img src="{{etablissementService.host+'/imageEtablissement/'+e.id}}" class="rounded" alt="Cinque Terre" width="80" height="80" /></td>
+              <td >{{e.nom}}</td>
+              <td>{{e.mail }}</td>
+              <td>{{e.tel }}</td>
+              <td> {{e.ville.nom}}</td>
+              <td> {{e.nbDeMateriel}}</td>
+              <td> <img src="{{etablissementService.host+'/LogoDon/'+e.id}}" class="rounded" alt="Cinque Terre" width="20" height="20" /></td>
+
+              <td><button (click)="deleteEtablissement(e.id)" class="btn btn-danger">Delete</button>
+                <button (click)="updateEtablissement(e.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="pagination justify-content-center" style="margin:20px 0" >
+        <ul class="nav nav-pills">
+          <li class="nav-item" *ngFor="let p of pages;let i=index">
+            <a class="nav-link" href="" (click)="setPage(i,$event)">{{i}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="container form-container">
+      <label for="search" class="col-sm-2 col-form-label" style="text-align: right;">Search</label>
+      <div class="col-sm-8">
+        <input type="text" [(ngModel)]="searchValue"  class="form-control" id="search"/>
+
+        </div>
+        <td><button (click)="createMateriel()" type="button" class="btn btn-success">Add Materiel</button></td>
+
+    </div>
+
+    <div class="form-style-10">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>Materiel</h3></div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Photo</th>
+              <th>Reference</th>
+              <th>Type</th>
+              <th>Etablissement Donatrice</th>
+              <th>Etat</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody *ngIf="materiels">
+            <tr  *ngFor="let m of materiels | searchfilter:searchValue">
+              <td><img src="{{materielService.host+'/imageMateriel/'+m.id}}" class="rounded" alt="Cinque Terre" width="80" height="80" /></td>
+              <td >{{m.reference}}</td>
+              <td>{{m.type.nom }}</td>
+              <td>{{m.etablissementDon.nom }}</td>
+              <td> <img src="{{materielService.host+'/LogoEtat/'+m.id}}" class="rounded" alt="Cinque Terre" width="20" height="20" /></td>
+
+              <td><button (click)="deleteMateriel(m.id)" class="btn btn-danger">Delete</button>
+                <button (click)="updateMateriel(m.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="pagination justify-content-center" style="margin:20px 0" >
+        <ul class="nav nav-pills">
+          <li class="nav-item" *ngFor="let p of pages;let i=index">
+            <a class="nav-link" href="" (click)="setPage(i,$event)">{{i}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+  </div>
+
+

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="form-style-10">
+      <h3>Ajouter un Etablissement</h3>
+
+      <div [hidden]="submitted" style="width: 400px;">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" required [(ngModel)]="etablissement.nom" name="nom">
+          </div>
+          <div class="form-group">
+            <label for="mail">Mail</label>
+            <input type="text" class="form-control" id="mail" required [(ngModel)]="etablissement.mail" name="mail">
+          </div>
+          <div class="form-group">
+            <label for="tele">Telephone</label>
+            <input type="text" class="form-control" id="tele" required [(ngModel)]="etablissement.tel" name="tele">
+          </div>
+          <div class="form-group">
+            <label >Ville</label>
+            <select class="form-select"  [(ngModel)]="vil" name="ville" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let v of ville" [value]="v.id">{{v.nom}}</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" id="type" required [(ngModel)]="etablissement.donatrice" name="type">
+          </div>
+          <div >
+
+          </div>
+
+
+
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div></div>
